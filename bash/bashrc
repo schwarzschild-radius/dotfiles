@@ -108,6 +108,7 @@ bash_map(){
     echo $files 
 }
 
+# adds to the path to LD_LIBRARY_PATH env variable
 add_libpath(){
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$1
 }
