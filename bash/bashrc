@@ -108,4 +108,8 @@ bash_map(){
     echo $files 
 }
 
+add_libpath(){
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$1
+}
+
 # Custom function
