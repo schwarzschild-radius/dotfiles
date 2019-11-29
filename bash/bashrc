@@ -114,3 +114,8 @@ add_libpath(){
 }
 
 # Custom function
+
+alias icode="code-insiders" # vscode insider version
+
+
+# Aliases
