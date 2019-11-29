@@ -113,9 +113,28 @@ add_libpath(){
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$1
 }
 
+mount_at(){
+    this=$1
+    at=$2
+    sudo mkdir -p $2
+    sudo mount $1 $2
+}
+
+unmount(){
+    sudo umount $1
+}
+
 # Custom function
 
 alias icode="code-insiders" # vscode insider version
+alias mount_softwares="mount_at /dev/sda10 /media/pradeep/Softwares"
+alias mount_movies="mount_at /dev/sda7 /media/pradeep/Movies"
+alias mount_wormhole="mount_at /dev/sda6 /media/pradeep/Wormhole"
+alias mount_my_stuff="mount_at /dev/sda9 /media/pradeep/My_Stuff"
 
+alias unmount_softwares="unmount /media/pradeep/Softwares"
+alias unmount_movies="unmount /media/pradeep/Movies"
+alias unmount_wormhole="unmount /media/pradeep/Wormhole"
+alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
 # Aliases
