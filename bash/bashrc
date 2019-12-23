@@ -1,7 +1,3 @@
-alias open=xdg-open
-## Aliases
-
-
 mcd(){
     mkdir -p $1
     cd $1	
@@ -125,7 +121,7 @@ unmount(){
 }
 
 # Custom function
-
+alias open=xdg-open
 alias icode="code-insiders" # vscode insider version
 alias mount_softwares="mount_at /dev/sda10 /media/pradeep/Softwares"
 alias mount_movies="mount_at /dev/sda7 /media/pradeep/Movies"
