@@ -120,6 +120,22 @@ unmount(){
     sudo umount $1
 }
 
+tmux_name() {
+  tmux rename-window $1
+}
+
+hedwig() {
+    $BOS/howler.py $BOS/configs/regular_config.yaml "$@"
+}
+
+regress() {
+  echo -e "$1\n $2" | python3 -c "a = float(input()); b = float(input()); print(((a - b) / a) * 100);"
+}
+
+function pretty_csv {
+  column -t -s, -n "$@" | less -F -S -X -K
+}
+
 # Custom function
 alias open=xdg-open
 alias icode="code-insiders" # vscode insider version
