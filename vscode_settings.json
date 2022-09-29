@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.sideBar.location": "right",
+    "editor.minimap.enabled": false,
+    "workbench.panel.opensMaximized": "always",
+    "terminal.integrated.fontSize": 18,
+    "editor.fontSize": 18,
+    "editor.fontFamily": "Cascadia Mono"
+}
