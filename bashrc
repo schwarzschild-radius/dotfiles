@@ -134,11 +134,11 @@ function pretty_csv {
 
 # tmux shortcuts
 
-ta {
+function ta {
   tmux attach -t $1
 }
 
-tn() {
+function tn {
   tmux rename-window $1
 }
 
