@@ -120,10 +120,6 @@ unmount(){
     sudo umount $1
 }
 
-tmux_name() {
-  tmux rename-window $1
-}
-
 hedwig() {
     $BOS/howler.py $BOS/configs/regular_config.yaml "$@"
 }
@@ -134,6 +130,16 @@ regress() {
 
 function pretty_csv {
   column -t -s, -n "$@" | less -F -S -X -K
+}
+
+# tmux shortcuts
+
+ta {
+  tmux attach -t $1
+}
+
+tn() {
+  tmux rename-window $1
 }
 
 # Custom function
