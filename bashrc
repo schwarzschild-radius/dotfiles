@@ -139,7 +139,7 @@ function ta {
 }
 
 function tn {
-  dir=`basename pwd`
+  dir=`basename $(pwd)`
   if [ "$1" != "" ]; then
     dir=$1
   fi
