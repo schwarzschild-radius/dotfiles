@@ -146,7 +146,11 @@ function ta {
 }
 
 function tn {
-  tmux rename-window $1
+  dir=`basename $(pwd)`
+  if [ "$1" != "" ]; then
+    dir=$1
+  fi
+  tmux rename-window $dir
 }
 
 # Custom function
