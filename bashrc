@@ -8,6 +8,13 @@ vims(){
     source $1
 }
 
+usrc(){
+  curr_dir=`pwd`
+  if [ "$1" != "" ]; then
+    curr_dir=$1
+  fi
+  source ~/.bashrc
+}
 
 gitcd(){
 	if [ $# -eq 2 ]
