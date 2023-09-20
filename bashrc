@@ -167,3 +167,5 @@ alias unmount_wormhole="unmount /media/pradeep/Wormhole"
 alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
 # Aliases
+
+source ./llvmrc
