@@ -1,3 +1,5 @@
+# Custom Function
+
 mkcd(){
     mkdir -p $1
     cd $1	
@@ -153,7 +155,8 @@ function tn {
   tmux rename-window $dir
 }
 
-# Custom function
+# Aliases
+
 alias open=xdg-open
 alias icode="code-insiders" # vscode insider version
 alias mount_softwares="mount_at /dev/sda10 /media/pradeep/Softwares"
@@ -166,6 +169,7 @@ alias unmount_movies="unmount /media/pradeep/Movies"
 alias unmount_wormhole="unmount /media/pradeep/Wormhole"
 alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
-# Aliases
+# Sourcing other files
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
 
-source ./llvmrc
+source $DIR/llvmrc
