@@ -175,7 +175,7 @@ export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1
 tmux setenv PATH "$PATH"
 tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
 
-# Custom function
+# Aliases
 alias open=xdg-open
 alias icode="code-insiders" # vscode insider version
 alias mount_softwares="mount_at /dev/sda10 /media/pradeep/Softwares"
@@ -189,7 +189,9 @@ alias unmount_wormhole="unmount /media/pradeep/Wormhole"
 alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
 alias tf="tail -f"
-# Aliases
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# Sourcing other files
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
+
+source $DIR/llvmrc
 source ${DIR}/git_utils.sh
