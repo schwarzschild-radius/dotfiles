@@ -1,3 +1,14 @@
+# env vars
+
+export CLANGCXX=clang++
+export CLANGC=clang
+
+# Bash Functions
+
+function c {
+	cd $1
+}
+
 mkcd(){
     mkdir -p $1
     cd $1	
@@ -80,17 +91,17 @@ cpcmd(){
 }
 
 cpp_ast_dump(){
-    clang++ -Xclang -ast-dump -fsyntax-only $1
+    CLANGCXX -Xclang -ast-dump -fsyntax-only $1
 }
 
 cuda_ast_dump(){
-    clang++-9 -Xclang -ast-dump -fsyntax-only --cuda-gpu-arch=sm_50 $1
+    CLANGCXX -Xclang -ast-dump -fsyntax-only --cuda-gpu-arch=sm_50 $1
 }
 
 cuda_clang(){
     source=$1
     shift
-    clang++-9 --cuda-gpu-arch=sm_50 -L /usr/local/cuda-9.0/lib64/ -lcudart $source $@
+    CLANGCXX --cuda-gpu-arch=sm_50 -L /usr/local/cuda-9.0/lib64/ -lcudart $source $@
 }
 
 getLatest(){
@@ -153,6 +164,17 @@ function tn {
   tmux rename-window $dir
 }
 
+function tl {
+	tmux ls
+}
+
+export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
+export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
+# Tell tmux to set these variables for new windows/panes.
+# Remove if you don't use tmux
+tmux setenv PATH "$PATH"
+tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
+
 # Custom function
 alias open=xdg-open
 alias icode="code-insiders" # vscode insider version
@@ -166,4 +188,8 @@ alias unmount_movies="unmount /media/pradeep/Movies"
 alias unmount_wormhole="unmount /media/pradeep/Wormhole"
 alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
+alias tf="tail -f"
 # Aliases
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source ${DIR}/git_utils.sh

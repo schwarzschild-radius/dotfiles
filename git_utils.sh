@@ -1,0 +1,3 @@
+
+# aliases
+gs="git status"
