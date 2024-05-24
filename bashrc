@@ -172,8 +172,13 @@ export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | he
 export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
 # Tell tmux to set these variables for new windows/panes.
 # Remove if you don't use tmux
-tmux setenv PATH "$PATH"
-tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
+tmux has-session &> /dev/null
+
+if [ $? == 0 ]
+then
+    tmux setenv PATH "$PATH"
+    tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
+fi
 
 # Aliases
 alias open=xdg-open
@@ -194,4 +199,4 @@ alias tf="tail -f"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
 
 source $DIR/llvmrc
-source ${DIR}/git_utils.sh
+source $DIR/git_utils
