@@ -168,12 +168,11 @@ function tl {
 	tmux ls
 }
 
-export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
-export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
+#export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
 # Tell tmux to set these variables for new windows/panes.
 # Remove if you don't use tmux
-tmux setenv PATH "$PATH"
-tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
+# tmux setenv PATH "$PATH"
+#tmux setenv VSCODE_IPC_HOOK_CLI "$VSCODE_IPC_HOOK_CLI"
 
 # Aliases
 alias open=xdg-open
