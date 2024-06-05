@@ -168,7 +168,13 @@ function tl {
 	tmux ls
 }
 
-#export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
+if [ -d "$HOME/.vscode-server/bin" ]; then
+	export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
+fi
+
+if [ -d "/run/user/$(id -u)" ]; then
+	export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
+fi
 # Tell tmux to set these variables for new windows/panes.
 # Remove if you don't use tmux
 tmux has-session &> /dev/null
@@ -198,4 +204,4 @@ alias tf="tail -f"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
 
 source $DIR/llvmrc
-source $DIR/git_utils
+source $DIR/git_utils.sh
