@@ -168,6 +168,10 @@ function tl {
 	tmux ls
 }
 
+function tmr {
+	export $(tmux show-environment | grep "^PATH")
+}
+
 if [ -d "$HOME/.vscode-server/bin" ]; then
 	export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
 fi
