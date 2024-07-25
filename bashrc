@@ -94,16 +94,6 @@ cpp_ast_dump(){
     CLANGCXX -Xclang -ast-dump -fsyntax-only $1
 }
 
-cuda_ast_dump(){
-    CLANGCXX -Xclang -ast-dump -fsyntax-only --cuda-gpu-arch=sm_50 $1
-}
-
-cuda_clang(){
-    source=$1
-    shift
-    CLANGCXX --cuda-gpu-arch=sm_50 -L /usr/local/cuda-9.0/lib64/ -lcudart $source $@
-}
-
 getLatest(){
     result=(`ls -t $1`)
     echo $1/$result
@@ -150,6 +140,10 @@ function pretty_csv {
   column -t -s, -n "$@" | less -F -S -X -K
 }
 
+function ff {
+	find . -name $1
+}
+
 # tmux shortcuts
 
 function ta {
@@ -171,6 +165,12 @@ function tl {
 function tmr {
 	export $(tmux show-environment | grep "^PATH")
 }
+
+function trs {
+	tmux rename-session $1
+}
+
+# tmux shortcuts end
 
 if [ -d "$HOME/.vscode-server/bin" ]; then
 	export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
