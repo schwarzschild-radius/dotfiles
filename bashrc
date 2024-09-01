@@ -162,6 +162,7 @@ function tl {
 	tmux ls
 }
 
+<<<<<<< Updated upstream
 function tmr {
 	export $(tmux show-environment | grep "^PATH")
 }
@@ -179,6 +180,13 @@ fi
 if [ -d "/run/user/$(id -u)" ]; then
 	export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
 fi
+=======
+function dwn {
+	cd ~/Downloads
+}
+
+#export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
+>>>>>>> Stashed changes
 # Tell tmux to set these variables for new windows/panes.
 # Remove if you don't use tmux
 tmux has-session &> /dev/null
