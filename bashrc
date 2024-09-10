@@ -162,7 +162,6 @@ function tl {
 	tmux ls
 }
 
-<<<<<<< Updated upstream
 function tmr {
 	export $(tmux show-environment | grep "^PATH")
 }
@@ -171,22 +170,20 @@ function trs {
 	tmux rename-session $1
 }
 
+function dwn {
+	cd ~/Downloads
+}
 # tmux shortcuts end
 
 if [ -d "$HOME/.vscode-server/bin" ]; then
 	export PATH="${HOME}/.vscode-server/bin/$(ls -t1 ${HOME}/.vscode-server/bin | head -n 1)/bin:${PATH}"
 fi
 
-if [ -d "/run/user/$(id -u)" ]; then
+if [ -d "/run/user/$(id -u)/vscode-ipc-*" ]; then
 	export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
 fi
-=======
-function dwn {
-	cd ~/Downloads
-}
 
 #export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
->>>>>>> Stashed changes
 # Tell tmux to set these variables for new windows/panes.
 # Remove if you don't use tmux
 tmux has-session &> /dev/null
