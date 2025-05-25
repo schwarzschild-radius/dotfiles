@@ -107,9 +107,13 @@ git_size(){
 }
 
 bash_map(){
-    job=$1
-    files=$2
-    echo $files 
+  job=$1
+  files=$2
+  echo $files 
+}
+
+function rvs {
+  export VSCODE_IPC_HOOK_CLI="$(ls -t1 /run/user/$(id -u)/vscode-ipc-* | head -n 1)"
 }
 
 # adds to the path to LD_LIBRARY_PATH env variable
