@@ -212,6 +212,7 @@ alias unmount_wormhole="unmount /media/pradeep/Wormhole"
 alias unmount_my_stuff="unmount /media/pradeep/My_Stuff"
 
 alias tf="tail -f"
+alias lerr='less -p "error:"'
 
 # Sourcing other files
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
