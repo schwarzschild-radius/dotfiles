@@ -177,6 +177,11 @@ function trs {
 function dwn {
 	cd ~/Downloads
 }
+
+function gsave {
+	git config --global credential.helper store
+}
+
 # tmux shortcuts end
 
 if [ -d "$HOME/.vscode-server/bin" ]; then
