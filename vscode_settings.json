@@ -1,4 +1,5 @@
 {
+    "clangd.path" : "<>",
     "workbench.colorTheme": "Default High Contrast",
     "workbench.sideBar.location": "right",
     "editor.minimap.enabled": false,
